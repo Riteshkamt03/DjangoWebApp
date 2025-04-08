@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Riteshkamat's Works</title>
+</head>
+<body>
+    <h1><a href="{% url 'home' %}">Riteshkamat's Works</a></h1>
+    <hr>
+    {% if user.is_authenticated %}
+        <p>Logged in as {{ user.username }} | 
+            <a href="{% url 'post_question' %}">Post Question</a> | 
+            <a href="{% url 'logout' %}">Logout</a>
+        </p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a> | 
+           <a href="{% url 'register' %}">Register</a>
+        </p>
+    {% endif %}
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
